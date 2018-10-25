@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crystal Collector</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+        integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/javascript/game.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 gameplay-column">
+                <img id="youwin-image" src="assets/images/you-win.png" alt="Winning Image" />
+                <img id="gameover-image" src="assets/images/gameover.png" alt="Game Over Image" />
+
+            </div>
+            <div class="col-md-6 gameplay-column">
+
+                <h4>Wins:</h4>
+                <h5 id="wins-text"></h5>
+                <h4>Losses:</h4>
+                <h5 id="Loss-text"></h5>
+                <h4>Random result:</h4>
+                <h4 id="randomresult-text">
+                    </h6>
+                    <h4>your total score is:</h4>
+                    <h3 id="totalscore-text"></h3>
+
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<!-- speudo coding -->
+<!-- win, loss,you win,youloss,randomnumber display(19-120),4crystal buttons(1-12)
+user score display -->
+<!-- Every crystal need to have a random #between 1-12 -->
+<!-- after every game we want to reset the crystal values -->
+<!-- when clicking any crystal, it should adding with the previous result until the game win or loss -->
+<!-- if the random number mathches the user score, the player win the game if not they loss -->
+<!-- the value of the crystal should be hidded from the player -->

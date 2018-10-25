@@ -1,0 +1,40 @@
+/* style the whole body */
+body {
+    background-color: #eee;
+    padding-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    color:burlywood;
+    background: url('../images/crystal.jpg');
+    background-size: cover;
+    background-position: center center; 
+    }
+/* style the container */
+    .container { 
+     text-align: center;
+    
+    }
+    /* style the headings */
+    h1,h2,h3,
+    h4,h5,h6 {
+        padding: 10px;
+        background-color: rgba(179, 20, 94, 0.6);
+    }
+   
+    #gameover-image, #youwin-image{ 
+        display: block;
+        margin: 0 auto;
+       
+    }
+
+
+    #pressKeyTryAgain, #gameover-image,  #youwin-image { 
+        display: none;
+    }
+    .gameplay-column {
+        padding-top: 20px;
+        border: 3px dashed wheat;
+        text-align: center;
+        margin-top: 20px;
+        min-height: 500px;
+        background-color:rgba(11, 12, 14, 0.6);
+    }
