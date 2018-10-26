@@ -76,6 +76,19 @@ body {
         padding:5px;
         
     }
+
+
+
+    /* #gameover-image, #youwin-image{ 
+        display: block;
+        margin: 0 auto;
+       
+    }
+    
+
+    #gameover-image,  #youwin-image { 
+        display: none;
+    } */
    /* #one:hover{
        cursor: pointer;
        opacity: 1; 
