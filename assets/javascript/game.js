@@ -4,7 +4,9 @@ var lost = 0;
 var win = 0;
 var counter = 0;
 var image = ["./assets/images/image 1.jpg", "./assets/images/image2.jpg", "./assets/images/image3.jpg", "./assets/images/image4.png"]
-
+var keySound = new Audio('./assets/sounds/typewriter-key.wav');
+var winSound = new Audio('./assets/sounds/you-win.wav');
+var loseSound = new Audio('./assets/sounds/you-lose.wav');
 $(document).ready(function () {
   // create a function to generate a random number for each crystal.
   function imagegen() {
@@ -15,6 +17,8 @@ $(document).ready(function () {
       crystals.attr("value", Math.floor(Math.random() * 11) + 1); //set a random number to image.
       crystals.attr("height", "100");
       $("#images").append(crystals);  //appending child  crystals to the images(id that created in html).
+      // document.getElementById("gameover-image").style.cssText = "display: none";
+      // document.getElementById("youwin-image").style.cssText = "display: none";
 
     }
   }
@@ -25,23 +29,14 @@ $(document).ready(function () {
     $("#randomNumber").text("Random Number:" + random_result);
   }
 
-  // to create a win function.here to add images and sounds.
-  function wins() {
-
-
-
-  }
-
-  // to create a loss function.
-  function loss() {
-  }
-
   // to reset the display.
   function resethtml() {
     $("#randomNumber").html("Random Number:" + random_result);
     $("#wintext").html("<p>Wins: " + win + "</p>");
     $("#losstext").html("<p>Losses: " + lost + "</p>");
     $("#score").html("Your total score:" + counter);
+   
+  
     $("#images").empty();
 
   }
@@ -51,15 +46,16 @@ $(document).ready(function () {
     counter = 0;
     resethtml();
     imagegen();
-  }
+   
+   }
   //intialise the page with these
   randomNumgen();
   resethtml();
   imagegen();
- 
-
+  
   //to create a fuction for crystal click
   function crystalClick() {
+    keySound.play();
     counter += parseInt($(this).attr("value"));  //get the value of the image and increment the counter and update the counter value.
     // parsetInt: The parseInt() function parses a string and returns an integer.
     //Only the first number in the string is returned!
@@ -69,11 +65,15 @@ $(document).ready(function () {
     console.log(counter)
     if (random_result === counter) {
       win++;
+      winSound.play();
+      // document.getElementById("youwin-image").style.cssText = "display: block";
       totalReset();
 
     }
     else if (counter > random_result) {
       lost++;
+      loseSound.play();
+      // document.getElementById("gameover-image").style.cssText = "display: block";s
       totalReset();
     }
   }

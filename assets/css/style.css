@@ -20,16 +20,16 @@ body {
         background-color: rgba(179, 20, 94, 0.6);
     }
    
-    #gameover-image, #youwin-image{ 
+    /* #gameover-image, #youwin-image{ 
         display: block;
         margin: 0 auto;
        
-    }
+    } */
 
 
-    #pressKeyTryAgain, #gameover-image,  #youwin-image { 
+    /* #gameover-image,  #youwin-image { 
         display: none;
-    }
+    } */
     .gameplay-column {
         padding-top: 20px;
         border: 3px dashed wheat;
@@ -39,60 +39,7 @@ body {
         background-color:rgba(11, 12, 14, 0.6);
     }
 
-    /* .crystals{ */
-        /* display:flex; */
-        /* justify-content: space-around; */
-        /* border:1px solid red; */
-        /* align-items: center; */
-        /* padding:20px,20px,20px,20px; */
-        /* height: 60px;
-        width:20px; */
-	/* margin: 10px; */
-
-    /* } */
-    /* .crystal{
-        border:1px solid green;
-        height:200px;
-        width:200px;
-    } */
-    #one{
-        width:15%;
-        padding:10px;
-        
-        
-    }
-    #two{
-        width:20%;
     
-        padding:5px;
-    }
-    #three{
-        width:15%;
-        
-        padding:5px;
-    }
-    #four{
-        width:15%;
-        padding:5px;
-        
-    }
-
-
-
-    /* #gameover-image, #youwin-image{ 
-        display: block;
-        margin: 0 auto;
-       
-    }
-    
-
-    #gameover-image,  #youwin-image { 
-        display: none;
-    } */
-   /* #one:hover{
-       cursor: pointer;
-       opacity: 1; 
-   } */
        
     
 
