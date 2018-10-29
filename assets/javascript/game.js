@@ -1,140 +1,86 @@
 
-var randomResult;
+var random_result = "";
 var lost = 0;
 var win = 0;
-var totalscore = 0;
-// var Crystalnew;
-// var images=["./assets/images/image 1.jpg","./assets/images/image2.jpg"]
-// var keySound = new Audio('./assets/sounds/typewriter-key.wav');
-var winSound = new Audio('./assets/sounds/you-win.wav');
-var loseSound = new Audio('./assets/sounds/you-lose.wav');
-//  To generating random results.
+var counter = 0;
+var image = ["./assets/images/image 1.jpg", "./assets/images/image2.jpg", "./assets/images/image3.jpg", "./assets/images/image4.png"]
+
 $(document).ready(function () {
-  randomResult = Math.floor(Math.random() * 101) + 19;
-  $("#randomresult-text").html(randomResult);
+  // create a function to generate a random number for each crystal.
+  function imagegen() {
+    for (var i = 0; i < image.length; i++) {
+      var crystals = $("<img>");  //create an img tag in html.
+      crystals.attr("src", image[i]); //adding src to crystals
+      crystals.addClass("crystals");  //creating a class named crystals in htmll(to add class command is .addClass).
+      crystals.attr("value", Math.floor(Math.random() * 11) + 1); //set a random number to image.
+      crystals.attr("height", "100");
+      $("#images").append(crystals);  //appending child  crystals to the images(id that created in html).
 
-  // try
-  var num1 = Math.floor(Math.random() * 11 + 1)
-  var num2 = Math.floor(Math.random() * 11 + 1)
-  var num3 = Math.floor(Math.random() * 11 + 1)
-  var num4 = Math.floor(Math.random() * 11 + 1)
-  // var randomResult;
-  // var lost = 0;
-  // var win = 0;
-  // var totalscore = 0;
-
-  $('#wins-text').text(win);
-  $('#Loss-text').text(lost);
-
-  //resets the game
-  function reset() {
-
-    num1 = Math.floor(Math.random() * 11 + 1);
-    num2 = Math.floor(Math.random() * 11 + 1);
-    num3 = Math.floor(Math.random() * 11 + 1);
-    num4 = Math.floor(Math.random() * 11 + 1);
-
-
-
-    randomResult = Math.floor(Math.random() * 101) + 19;
-    $("#randomresult-text").html(randomResult);
-    totalscore = 0;
-    $('#totalscore-text').text(totalscore);
-
-    //   updateDisplay();
+    }
   }
-  //   function updateDisplay() { 
-  //     $('#wins-text').text(win);
-  //   $('#Loss-text').text(lost);}
-  //adds the wins to the userTotal
-  function yay() {
 
-    alert("You won!");
-    winSound.play();
-
-    win++;
-
-    $('#wins-text').text(win);
-    reset();
+  // Create a function to generate a random number.
+  function randomNumgen() {
+    random_result = Math.floor(Math.random() * 101) + 19;
+    $("#randomNumber").text("Random Number:" + random_result);
   }
-  //addes the losses to the userTotal
-  function loser() {
 
-    alert("You lose!");
-    loseSound.play();
+  // to create a win function.here to add images and sounds.
+  function wins() {
 
-    lost++;
-    $('#Loss-text').text(lost);
-    reset()
+
+
   }
-  //sets up click for jewels
-  $('#one').on('click', function () {
-    totalscore = totalscore + num1;
-    console.log("New userTotal= " + totalscore);
-    $('#totalscore-text').text(totalscore);
-    //sets win/lose conditions
-    if (totalscore == randomResult) {
-      yay();
-    }
-    else if (totalscore > randomResult) {
-      loser();
-    }
-  })
-  $('#two').on('click', function () {
 
-    totalscore = totalscore + num2;
-    console.log("New userTotal= " + totalscore);
-    $('#totalscore-text').text(totalscore);
-    if (totalscore == randomResult) {
-      yay();
-    }
-    else if (totalscore > randomResult) {
-      loser();
-    }
-  })
-  $('#three').on('click', function () {
-    totalscore = totalscore + num3;
-    console.log("New userTotal= " + totalscore);
-    $('#totalscore-text').text(totalscore);
-    //sets win/lose conditions
-    if (totalscore == randomResult) {
-      yay();
-    }
-    else if (totalscore > randomResult) {
-      loser();
-    }
-  })
-  $('#four').on('click', function () {
-    totalscore = totalscore + num4;
-    console.log("New userTotal= " + totalscore);
-    $('#totalscore-text').text(totalscore);
+  // to create a loss function.
+  function loss() {
+  }
 
-    if (totalscore == randomResult) {
-      yay();
+  // to reset the display.
+  function resethtml() {
+    $("#randomNumber").html("Random Number:" + random_result);
+    $("#wintext").html("<p>Wins: " + win + "</p>");
+    $("#losstext").html("<p>Losses: " + lost + "</p>");
+    $("#score").html("Your total score:" + counter);
+    $("#images").empty();
+
+  }
+  // to reset after win or loss occurs.
+  function totalReset() {
+    randomNumgen()
+    counter = 0;
+    resethtml();
+    imagegen();
+  }
+  //intialise the page with these
+  randomNumgen();
+  resethtml();
+  imagegen();
+ 
+
+  //to create a fuction for crystal click
+  function crystalClick() {
+    counter += parseInt($(this).attr("value"));  //get the value of the image and increment the counter and update the counter value.
+    // parsetInt: The parseInt() function parses a string and returns an integer.
+    //Only the first number in the string is returned!
+    // Leading and trailing spaces are allowed.
+    //If the first character cannot be converted to a number, parseInt() returns NaN.
+    $("#score").html("Your total score:" + counter);// to display players score.
+    console.log(counter)
+    if (random_result === counter) {
+      win++;
+      totalReset();
+
     }
-    else if (totalscore > randomResult) {
-      loser();
+    else if (counter > random_result) {
+      lost++;
+      totalReset();
     }
-  });
+  }
+
+  $(document).on("click", ".crystals", crystalClick);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//  speudo coding 
+//  pseudo coding 
 //  win, loss,you win,youloss,randomnumber display(19-120),4crystal buttons(1-12)
 // user score display 
 //  Every crystal need to have a random #between 1-12 
