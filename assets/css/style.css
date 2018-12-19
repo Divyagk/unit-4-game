@@ -24,11 +24,11 @@ body {
         display: block;
         margin: 0 auto;
        
-    } */
+    } 
 
 
-    /* #gameover-image,  #youwin-image { 
-        display: none;
+      #gameover-image,  #youwin-image { 
+        display: none; 
     } */
     .gameplay-column {
         padding-top: 20px;

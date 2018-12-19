@@ -17,9 +17,7 @@ $(document).ready(function () {
       crystals.attr("value", Math.floor(Math.random() * 11) + 1); //set a random number to image.
       crystals.attr("height", "100");
       $("#images").append(crystals);  //appending child  crystals to the images(id that created in html).
-      // document.getElementById("gameover-image").style.cssText = "display: none";
-      // document.getElementById("youwin-image").style.cssText = "display: none";
-
+      
     }
   }
 
@@ -35,8 +33,6 @@ $(document).ready(function () {
     $("#wintext").html("<p>Wins: " + win + "</p>");
     $("#losstext").html("<p>Losses: " + lost + "</p>");
     $("#score").html("Your total score:" + counter);
-   
-  
     $("#images").empty();
 
   }
@@ -47,6 +43,7 @@ $(document).ready(function () {
     resethtml();
     imagegen();
    
+
    }
   //intialise the page with these
   randomNumgen();
@@ -65,6 +62,7 @@ $(document).ready(function () {
     console.log(counter)
     if (random_result === counter) {
       win++;
+    
       winSound.play();
       // document.getElementById("youwin-image").style.cssText = "display: block";
       totalReset();
@@ -72,6 +70,8 @@ $(document).ready(function () {
     }
     else if (counter > random_result) {
       lost++;
+      
+
       loseSound.play();
       // document.getElementById("gameover-image").style.cssText = "display: block";s
       totalReset();
